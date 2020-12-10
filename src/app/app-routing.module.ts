@@ -5,7 +5,10 @@ const routes: Routes = [{ path: 'home', loadChildren: () => import('./home/home.
 { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
 { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
 { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) },
-{ path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule) }];
+{ path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule) },
+{ path: 'placeAppointment', loadChildren: () => import('./place-appointment/place-appointment.module').then(m => m.PlaceAppointmentModule) },
+{ path: 'viewAppointment', loadChildren: () => import('./view-appointment/view-appointment.module').then(m => m.ViewAppointmentModule) },
+{ path: '**', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,12 +1,14 @@
 <div class="container">
-    <div class="row justify-content-center bg-info">
+    <div class="row justify-content-center">
         <h3 class="display-3 text-dark">Welcome {{fullname}} !</h3>
     </div>
 </div>
 
 <div class="container mt-3 justify-content-center">
-    <p class="display-4 text-center">
-       Welcome Msg
+    <p class="mb-0 text-center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus justo, semper ut blandit in, scelerisque in orci. Donec vitae consectetur turpis. Integer sed leo blandit, venenatis augue et, hendrerit sapien. Sed nec urna id ex efficitur commodo. Nam tristique lorem nisi, nec pellentesque libero molestie at. Nulla id dui ac sapien rutrum posuere. Integer quis aliquet est, at bibendum elit. Donec leo erat, sodales id odio et, sagittis viverra turpis. Etiam blandit est consectetur, elementum dui non, efficitur nisi. Vestibulum non augue mi.
+
+        Pellentesque congue at orci vitae rhoncus. Sed commodo tellus vel metus varius tristique cursus ac risus. Nam posuere tortor et dui porttitor maximus. In enim urna, venenatis vitae erat sed, tincidunt pharetra lorem. Sed mattis purus at feugiat elementum. Phasellus ut elementum dui. Etiam id diam eu massa pulvinar auctor. Etiam id nisi in eros molestie bibendum. Integer ornare vehicula dui, eget tempor justo aliquam eget. Fusce posuere odio turpis, et elementum magna placerat dapibus. Duis sagittis condimentum tempus. In sed convallis ante, ut bibendum est.
     </p>
 </div>
 
@@ -99,9 +101,31 @@
             
             
                 <div class="row justify-content-center mt-3">
-                    <button type="submit" class="btn btn-outline-primary btn-lg" [disabled] = "!this.trainerForm.valid">Apply</button>
+                    <button data-toggle="modal" data-target="#exampleModal" type="submit" class="btn btn-outline-primary btn-lg" [disabled] = "!this.trainerForm.valid">Apply</button>
                 </div>
             </form>
+
+            <!--Modal Begin-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thank you for your interest in working with us!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>We have recieved your details and we will contact you once we have processed your application.</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!--Modal End-->
         </div>
     </div>
 </div>

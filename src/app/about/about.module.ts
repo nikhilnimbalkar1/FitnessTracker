@@ -10,6 +10,6 @@ import { AboutComponent } from './about.component';
   imports: [
     CommonModule,
     AboutRoutingModule
-  ]
+  ],
 })
 export class AboutModule { }

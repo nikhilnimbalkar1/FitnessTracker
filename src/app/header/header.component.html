@@ -12,28 +12,28 @@
           </div>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" routerLink = "/home">Home 
+              <li class="nav-item btn-outline-info border m-1">
+                <a class="nav-link" routerLinkActive routerLink = "/home">Home 
                       <span class="sr-only">(current)</span>
                     </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" >Place Appointment</a>
+              <li class="nav-item btn-outline-info border m-1">
+                <a class="nav-link " routerLinkActive routerLink = "/placeAppointment" >Place Appointment</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" >View Appointment</a>
+              <li class="nav-item btn-outline-info border m-1">
+                <a class="nav-link"  routerLinkActive routerLink = "/viewAppointment" >View Appointment</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink = "/search" >Search</a>
+              <li class="nav-item btn-outline-info border m-1">
+                <a class="nav-link" routerLinkActive routerLink = "/search" >Search</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link " routerLink = "/about" >About Us</a>
+              <li class="nav-item btn-outline-info border m-1">
+                <a class="nav-link " routerLinkActive routerLink = "/about" >About Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" routerLink = "/contact" >Contact Us</a>
+              <li class="nav-item btn-outline-info border m-1">
+                <a class="nav-link" routerLinkActive routerLink = "/contact" >Contact Us</a>
               </li>
 
-              <li class="nav-item" (click)="logout()" *ngIf = "isLoggedIn">
+              <li class="nav-item  border m-1" (click)="logout()" *ngIf = "isLoggedIn">
                 <a class="nav-link btn-outline-danger" >Logout</a>
               </li>
             </ul>

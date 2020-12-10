@@ -10,6 +10,8 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfoModalComponent } from './info-modal/info-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     SideBarComponent,
     FooterComponent,
-    AuthComponent
+    AuthComponent,
+    InfoModalComponent,
   ],
   imports: [
     BrowserModule,

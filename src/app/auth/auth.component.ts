@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from './auth.model';
 import { AuthService } from './auth.service';
@@ -15,7 +15,8 @@ export class AuthComponent implements OnInit {
   isLoginMode = true;
   Mode = "Login"
 
-  constructor(private authService : AuthService) { }
+
+  constructor(private authService : AuthService,private renderer:Renderer2) { }
 
   ngOnInit(): void {
     const passPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$';
@@ -24,16 +25,16 @@ export class AuthComponent implements OnInit {
       'surname' : new FormControl(null,Validators.required),
       'address' : new FormControl(null,Validators.required),
       'email' : new FormControl(null,[Validators.required,Validators.email]),
-      'contact' : new FormControl(null,Validators.required),
+      'contact' : new FormControl(null,[Validators.required,Validators.minLength(10)]),
       'password' : new FormControl(null,[Validators.required]),
       'username' : new FormControl(null,Validators.required),
-
     });
 
     this.loginForm = new FormGroup({
       'username':new FormControl(null,Validators.required),
       'password':new FormControl(null,[Validators.required])
-    })
+    });
+
   }
 
   onSwitchMode(){
