@@ -3,7 +3,7 @@ import { PlaceAppointmentComponent } from './place-appointment.component';
 
 @Injectable()
 export class PlaceAppointmentService{
-    appointments = JSON.parse(localStorage.getItem('appointments'));
+    appointments:{}[] = [];
 
     addAppointment(appointment:{}){
         this.appointments.push(appointment);

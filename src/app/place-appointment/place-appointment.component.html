@@ -11,26 +11,32 @@
       <div class="form-group col-md-6">
         <label for="inputEmail4">First Name</label>
         <input formControlName="fname" type="text" class="form-control" placeholder="First Name">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('fname').valid && placeAppointmentForm.get('fname').touched "> <small>Please enter your first name! </small></span>
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4">Last Name</label>
         <input formControlName="lname" type="text" class="form-control"  placeholder="Last Name">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('lname').valid && placeAppointmentForm.get('lname').touched "> <small>Please enter your last name! </small></span>
       </div>
     </div>
     
     <div class="form-group">
       <label for="inputAddress">Shipping Address</label>
       <input formControlName="shipaddress" type="text" class="form-control" id="inputAddress" placeholder="Shipping Address">
+      <span class="help-block" *ngIf = "!placeAppointmentForm.get('shipaddress').valid && placeAppointmentForm.get('shipaddress').touched "> <small>Please enter your Shipping Address! </small></span>
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Street Address</label>
         <input formControlName="streetaddress" type="text" class="form-control">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('streetaddress').valid && placeAppointmentForm.get('streetaddress').touched "> <small>Please enter your street address! </small></span>
       </div>
       <div class="form-group col-md-6">
         <label>Apartment</label>
         <input  formControlName="apartment" type="text" class="form-control" >
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('apartment').valid && placeAppointmentForm.get('apartment').touched "> <small>Please enter your Apartment Details! </small></span>
+
       </div>
     </div>
 
@@ -38,10 +44,14 @@
       <div class="form-group col-md-6">
         <label for="inputEmail4">City</label>
         <input formControlName="city" type="text" class="form-control">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('city').valid && placeAppointmentForm.get('city').touched "> <small>Please enter your city name! </small></span>
+
       </div>
       <div class="form-group col-md-6">
         <label>State</label>
         <input formControlName="state" type="text" class="form-control" >
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('state').valid && placeAppointmentForm.get('state').touched "> <small>Please enter the State you reside in! </small></span>
+
       </div>
     </div>
     
@@ -49,6 +59,8 @@
       <div class="form-group col-md-6">
         <label for="inputCity">Pincode</label>
         <input formControlName="zip" type="text" class="form-control">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('zip').valid && placeAppointmentForm.get('zip').touched "> <small>Please enter a valid PinCode! </small></span>
+
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">Country</label>
@@ -300,33 +312,45 @@
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
         </select>
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('country').valid && placeAppointmentForm.get('country').touched "> <small>Please select a country! </small></span>
+
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label>Buyer's Name</label>
+        <label>Buyer's First Name</label>
         <input formControlName="bfname" type="text" class="form-control" placeholder="First Name">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('bfname').valid && placeAppointmentForm.get('bfname').touched "> <small>Please enter your first name! </small></span>
+
       </div>
       <div class="form-group col-md-6">
-        <label>-----</label>
+        <label>Buyer's Last Name</label>
         <input formControlName="blname" type="text" class="form-control"  placeholder="Last Name">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('blname').valid && placeAppointmentForm.get('blname').touched "> <small>Please enter your last name! </small></span>
+
       </div>
     </div>
 
     <div class="form-group">
       <label>Contact No</label>
       <input  formControlName="phono" type="tel" class="form-control">
+      <span class="help-block" *ngIf = "!placeAppointmentForm.get('phono').valid && placeAppointmentForm.get('phono').touched "> <small>Please enter your Contact No.! </small></span>
+
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label>Email</label>
         <input formControlName="email" type="email" class="form-control"  placeholder="Email">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('email').valid && placeAppointmentForm.get('email').touched "> <small>Please enter a valid Email! </small></span>
+
       </div>
       <div class="form-group col-md-6">
         <label>Age</label>
         <input formControlName="age" type="number" class="form-control">
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('age').valid && placeAppointmentForm.get('age').touched "> <small>Please enter a valid age! </small></span>
+
       </div>
     </div>
 
@@ -360,17 +384,20 @@
       <div class="form-group col-md-6">
         <label>Choose a Package</label>
         <select formControlName="package" class="form-control">
-          <option class="form-control">-------</option>
+          <option class="form-control" selected>-------</option>
           <option class="form-control">One Time Assessment Only</option>
           <option class="form-control">4 Sessions Per Week</option>
           <option class="form-control">5 Sessions Per Week</option>
           <option class="form-control">Other</option>
         </select>
+        <span class="help-block" *ngIf = "!placeAppointmentForm.get('package').valid && placeAppointmentForm.get('package').touched "> <small>Please select a package! </small></span>
+
       </div>
       <div class="form-group col-md-6">
         <label>Specify Your Need</label>
         <input formControlName="otherpack" type="text" class="form-control">
       </div>
+
     </div>
 
     <div class="form-row">
@@ -378,7 +405,7 @@
         <label>Amount</label>
       </div>
       <div class="form-group col-md-6">
-        <input formControlName="bill" type="number" class="form-control" >
+        <input formControlName="bill" readonly type="number" class="form-control" >
       </div>
     </div>
 

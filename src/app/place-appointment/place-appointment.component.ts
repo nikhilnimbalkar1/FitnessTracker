@@ -19,24 +19,24 @@ export class PlaceAppointmentComponent implements OnInit{
   ngOnInit(): void {
 
     if(localStorage.getItem('appointments')==null){
-      localStorage.setItem('appointments',JSON.stringify({}));
+      localStorage.setItem('appointments',JSON.stringify([]));
     }
 
     this.placeAppointmentForm = new FormGroup({
-      'fname': new FormControl(null,Validators.required),
-      'lname': new FormControl(null,Validators.required),
+      'fname': new FormControl(null,[Validators.required,Validators.pattern('^([^0-9]*)$')]),
+      'lname': new FormControl(null,[Validators.required,Validators.pattern('^([^0-9]*)$')]),
       'shipaddress': new FormControl(null,Validators.required),
       'streetaddress': new FormControl(null,Validators.required),
       'apartment': new FormControl(null,Validators.required),
       'city': new FormControl(null,Validators.required),
       'state': new FormControl(null,Validators.required),
-      'zip': new FormControl(null,Validators.required),
+      'zip': new FormControl(null,[Validators.required,Validators.pattern('^[0-9]{6}$')]),
       'country': new FormControl(null,Validators.required),
-      'bfname': new FormControl(null,Validators.required),
-      'blname': new FormControl(null,Validators.required),
-      'phono': new FormControl(null,[Validators.required,Validators.minLength(10)]),
+      'bfname': new FormControl(null,[Validators.required,Validators.pattern('^([^0-9]*)$')]),
+      'blname': new FormControl(null,[Validators.required,Validators.pattern('^([^0-9]*)$')]),
+      'phono': new FormControl(null,[Validators.required,Validators.minLength(10),Validators.pattern('^[0-9]{10}$')]),
       'email': new FormControl(null,[Validators.required,Validators.email]),
-      'age': new FormControl(null,Validators.required),
+      'age': new FormControl(null,[Validators.required,Validators.min(18),Validators.max(60)]),
       'gender': new FormControl(null,Validators.required),
       'choice': new FormControl(null,Validators.required),
       'package': new FormControl(null,Validators.required),
@@ -69,7 +69,7 @@ export class PlaceAppointmentComponent implements OnInit{
           this.placeAppointmentForm.controls['bill'].enable();
           break;
           
-        case "4 Sessions Per Week":
+        case "5 Sessions Per Week":
           this.placeAppointmentForm.patchValue({
                   'bill':1500
                 })
@@ -78,6 +78,9 @@ export class PlaceAppointmentComponent implements OnInit{
           break;
 
         case "Other":
+          this.placeAppointmentForm.patchValue({
+            'bill':2000
+          })
           this.placeAppointmentForm.controls['otherpack'].enable();
           break;
 

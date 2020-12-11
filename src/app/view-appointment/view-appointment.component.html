@@ -1,1 +1,26 @@
-<p>view-appointment works!</p>
+<div class="row justify-content-center mt-3 border" *ngIf="!filled">
+    <h3 class="text-danger display-4 error">There are no appointments!</h3> 
+</div>
+
+<table class="table table-hover mt-3" *ngIf = "filled" >
+    <thead class="bg-info">
+      <tr>
+        <th scope="col">Sr No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Package</th>
+        <th scope="col">Trainer Preference</th>
+        <th scope="col">Phone No.</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let info of appointments; let i = index">
+      <tr>
+        <th scope="row">{{i+1}}</th>
+        <td>{{info.fname + " "+ info.lname }}</td>
+        <td>{{ info.streetaddress+", "+info.city+", "+info.state+", "+info.country }}</td>
+        <td>{{ info.package}}</td>
+        <td>{{ info.gender}}</td>
+        <td>{{ info.phono}}</td>
+      </tr>
+    </tbody>
+  </table>

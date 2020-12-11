@@ -19,13 +19,12 @@ export class AuthComponent implements OnInit {
   constructor(private authService : AuthService,private renderer:Renderer2) { }
 
   ngOnInit(): void {
-    const passPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$';
     this.registerForm = new FormGroup({
-      'name' : new FormControl(null,Validators.required),
-      'surname' : new FormControl(null,Validators.required),
+      'name' : new FormControl(null,[Validators.required,Validators.pattern('^([^0-9]*)$')]),
+      'surname' : new FormControl(null,[Validators.required,Validators.pattern('^([^0-9]*)$')]),
       'address' : new FormControl(null,Validators.required),
       'email' : new FormControl(null,[Validators.required,Validators.email]),
-      'contact' : new FormControl(null,[Validators.required,Validators.minLength(10)]),
+      'contact' : new FormControl(null,[Validators.required,Validators.minLength(10),Validators.pattern('^[0-9]{10}$')]),
       'password' : new FormControl(null,[Validators.required]),
       'username' : new FormControl(null,Validators.required),
     });

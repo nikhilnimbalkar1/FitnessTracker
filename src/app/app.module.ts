@@ -10,7 +10,6 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { InfoModalComponent } from './info-modal/info-modal.component';
 
 
 @NgModule({
@@ -20,7 +19,6 @@ import { InfoModalComponent } from './info-modal/info-modal.component';
     SideBarComponent,
     FooterComponent,
     AuthComponent,
-    InfoModalComponent,
   ],
   imports: [
     BrowserModule,
