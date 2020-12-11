@@ -1,8 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { User } from './auth.model';
 
 @Injectable()
 export class AuthService{
+
+    constructor(private http : HttpClient ){}
 
     private mainUser = new User('Nikhil','Nimbalkar','Pune','nsv.nimbalkar@gmail.com','7038948969','melkor','9730996489Abc!');
     private guestUser = new User('Guest','Guest','Earth','abc@xyz.com','88888888888','guest',null);
@@ -56,15 +59,13 @@ export class AuthService{
         this.currentuser = null;
         // localStorage.setItem('isLoggedIn',JSON.stringify(this.isLoggedIn));
         // localStorage.setItem('user',JSON.stringify({}));
+        const appointments = JSON.parse(localStorage.getItem('appointments'));
+        this.http.post("http://localhost:3004/appointments",appointments).subscribe((res)=>{
+            console.log(res);
+            
+        })
         this.loginStatus.emit(this.isLoggedIn);
-        // const fs = require('fs');
-        // const data = localStorage.getItem('appointments');
-        // fs.writeFile('/DB/appointments.json', data, (err) => {
-        //     if (err) {
-        //         throw err;
-        //     }
-        //     console.log("JSON data is saved.");
-        // });
+    
         localStorage.clear();
     }
 
