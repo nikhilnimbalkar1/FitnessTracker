@@ -54,9 +54,10 @@ export class AuthService{
     performLogout(){
         this.isLoggedIn = false;
         this.currentuser = null;
-        localStorage.setItem('isLoggedIn',JSON.stringify(this.isLoggedIn));
-        localStorage.setItem('user',JSON.stringify({}));
+        // localStorage.setItem('isLoggedIn',JSON.stringify(this.isLoggedIn));
+        // localStorage.setItem('user',JSON.stringify({}));
         this.loginStatus.emit(this.isLoggedIn);
+        localStorage.clear();
     }
 
 }
