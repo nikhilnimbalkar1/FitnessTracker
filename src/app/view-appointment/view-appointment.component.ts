@@ -37,8 +37,16 @@ zip: string,
       this.filled = false;
     }
     else{
-      this.filled=true;
+
       this.appointments = JSON.parse(localStorage.getItem('appointments'));
+      if(this.appointments.length==0){
+        this.filled=false;
+      }
+      else{
+        this.filled=true;
+      }
+      
+      
     }
    
 

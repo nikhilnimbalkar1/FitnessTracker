@@ -57,6 +57,14 @@ export class AuthService{
         // localStorage.setItem('isLoggedIn',JSON.stringify(this.isLoggedIn));
         // localStorage.setItem('user',JSON.stringify({}));
         this.loginStatus.emit(this.isLoggedIn);
+        // const fs = require('fs');
+        // const data = localStorage.getItem('appointments');
+        // fs.writeFile('/DB/appointments.json', data, (err) => {
+        //     if (err) {
+        //         throw err;
+        //     }
+        //     console.log("JSON data is saved.");
+        // });
         localStorage.clear();
     }
 

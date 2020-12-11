@@ -31,17 +31,17 @@ export class PlaceAppointmentComponent implements OnInit{
       'city': new FormControl(null,Validators.required),
       'state': new FormControl(null,Validators.required),
       'zip': new FormControl(null,[Validators.required,Validators.pattern('^[0-9]{6}$')]),
-      'country': new FormControl(null,Validators.required),
+      'country': new FormControl('India',Validators.required),
       'bfname': new FormControl(null,[Validators.required,Validators.pattern('^([^0-9]*)$')]),
       'blname': new FormControl(null,[Validators.required,Validators.pattern('^([^0-9]*)$')]),
       'phono': new FormControl(null,[Validators.required,Validators.minLength(10),Validators.pattern('^[0-9]{10}$')]),
       'email': new FormControl(null,[Validators.required,Validators.email]),
-      'age': new FormControl(null,[Validators.required,Validators.min(18),Validators.max(60)]),
-      'gender': new FormControl(null,Validators.required),
-      'choice': new FormControl(null,Validators.required),
-      'package': new FormControl(null,Validators.required),
+      'age': new FormControl(18,[Validators.required,Validators.min(18),Validators.max(60)]),
+      'gender': new FormControl('none',Validators.required),
+      'choice': new FormControl('no',Validators.required),
+      'package': new FormControl('One Time Assessment Only',Validators.required),
       'otherpack': new FormControl({value:null,disabled:true},Validators.required),
-      'bill': new FormControl({value:null,disabled:true},Validators.required)
+      'bill': new FormControl({value:500,disabled:true},Validators.required)
     })
 
   }
@@ -95,6 +95,8 @@ export class PlaceAppointmentComponent implements OnInit{
     if(this.placeAppointmentForm.valid){
       const appointment = this.placeAppointmentForm.value;
       this.appointservice.addAppointment(appointment); 
+      this.placeAppointmentForm.reset();
+      alert("Your Appointment has been confirmed!")
     }
 
   }
