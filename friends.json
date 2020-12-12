@@ -1,26 +1,5 @@
 {
   "appointments": [
-    [
-      {
-        "fname": "Nikhil",
-        "lname": "Nimbalkar",
-        "shipaddress": "Pune",
-        "streetaddress": "JVK Road",
-        "apartment": "Devdar Plot",
-        "city": "Pune",
-        "state": "Maharashtra",
-        "zip": "412203",
-        "country": "India",
-        "bfname": "Nikhil",
-        "blname": "Nimbalkar",
-        "phono": "7038948969",
-        "email": "nsv.nimbalkar@gmail.com",
-        "age": 18,
-        "gender": "none",
-        "choice": "no",
-        "package": "4 Sessions Per Week",
-        "bill": 1600
-      }
-    ]
+    
   ]
 }

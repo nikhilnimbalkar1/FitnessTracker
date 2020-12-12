@@ -94,8 +94,16 @@ export class PlaceAppointmentComponent implements OnInit{
 
     if(this.placeAppointmentForm.valid){
       const appointment = this.placeAppointmentForm.value;
-      this.appointservice.addAppointment(appointment); 
-      this.placeAppointmentForm.reset();
+      this.appointservice.addAppointment(appointment);
+      this.placeAppointmentForm.reset(); 
+      this.placeAppointmentForm.patchValue({
+        'country':'India',
+        'package':'One Time Assessment Only',
+        'bill':500,
+        'gender':'none',
+        'choice':'no'
+
+      })
       alert("Your Appointment has been confirmed!")
     }
 

@@ -2,25 +2,56 @@
     <h3 class="text-danger display-4 error">There are no appointments!</h3> 
 </div>
 
-<table class="table table-hover mt-3" *ngIf = "filled" >
-    <thead class="bg-info">
-      <tr>
-        <th scope="col">Sr No.</th>
-        <th scope="col">Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">Package</th>
-        <th scope="col">Trainer Preference</th>
-        <th scope="col">Phone No.</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let info of appointments; let i = index">
-      <tr>
-        <th scope="row">{{i+1}}</th>
-        <td>{{info.fname + " "+ info.lname }}</td>
-        <td>{{ info.streetaddress+", "+info.city+", "+info.state+", "+info.country }}</td>
-        <td>{{ info.package}}</td>
-        <td>{{ info.gender}}</td>
-        <td>{{ info.phono}}</td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="container mt-3"  *ngIf = "filled" >
+  <div class="row justify-content-center">
+    <h6>Search by Trainer Preference</h6>
+  </div>
+  <div class="row justify-content-center mt-1 border">
+    <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="onSearch()" >
+      <div *ngFor = "let gender of genders"  >
+        <div class="form-group m-1" >
+          <label>{{gender+" "}}</label>
+          <hr>
+          <input formControlName = "gender" type="radio" [value] = "gender" class="form-control">
+        </div>
+      </div>
+      <div class="m-3">
+        <button type="submit" class="btn btn-outline-primary mb-2">Search</button>
+      </div>
+      <div class="m-3">
+        <button type="button" (click)="onClearSearch()" class="btn btn-outline-primary mb-2">Clear Saerch Filter</button>
+      </div>
+      
+    </form>
+  </div>
+
+  <div class="row justify-content-center mt-1 border">
+
+    <table class="table table-hover mt-3">
+      <thead class="bg-info">
+        <tr>
+          <th scope="col">Sr No.</th>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Package</th>
+          <th scope="col">Trainer Preference</th>
+          <th scope="col">Phone No.</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let info of appointments; let i = index">
+        <tr>
+          <th scope="row">{{i+1}}</th>
+          <td>{{info.fname + " "+ info.lname }}</td>
+          <td>{{ info.streetaddress+", "+info.city+", "+info.state+", "+info.country }}</td>
+          <td>{{ info.package}}</td>
+          <td>{{ info.gender}}</td>
+          <td>{{ info.phono}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  
+</div>
+

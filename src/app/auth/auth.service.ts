@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { User } from './auth.model';
 
@@ -55,15 +55,28 @@ export class AuthService{
     }
 
     performLogout(){
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+              Authorization: 'my-auth-token'
+            })
+          };
         this.isLoggedIn = false;
         this.currentuser = null;
         // localStorage.setItem('isLoggedIn',JSON.stringify(this.isLoggedIn));
         // localStorage.setItem('user',JSON.stringify({}));
         const appointments = JSON.parse(localStorage.getItem('appointments'));
-        this.http.post("http://localhost:3004/appointments",appointments).subscribe((res)=>{
+        // this.http.delete("http://localhost:3004/appointments",httpOptions).subscribe((res)=>{
+        //     console.log(res);
+            
+        // })
+        for (let index = 0; index < appointments.length; index++) {
+            const element = appointments[index];
+            this.http.post("http://localhost:3004/appointments",element).subscribe((res)=>{
             console.log(res);
             
-        })
+        })};
+
         this.loginStatus.emit(this.isLoggedIn);
     
         localStorage.clear();

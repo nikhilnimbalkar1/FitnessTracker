@@ -1,14 +1,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container-fluid">
-          <a  class="navbar-brand " >
+          <a class="navbar-brand " routerLink = "/home" >
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/000/595/164/small/04012019-28.jpg" alt="Brand-Logo" style="max-height: 100px;">
               </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
           </button>
           <div>
-            <h1 class="display-3 text-light">Fitness Tracker</h1>
+            <a class="navbar-brand" routerLink = "/home" > <h1 class="display-3 text-light">Fitness Tracker</h1></a>
           </div>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
@@ -30,8 +30,8 @@
                 <a class="nav-link" routerLinkActive routerLink = "/contact" >Contact Us</a>
               </li>
 
-              <li class="nav-item  border m-1" (click)="logout()" *ngIf = "isLoggedIn">
-                <a class="nav-link btn-outline-danger" >Logout</a>
+              <li class="nav-item btn-outline-danger  border m-1" (click)="logout()" *ngIf = "isLoggedIn">
+                <a class="nav-link" >Logout</a>
               </li>
             </ul>
           </div>
